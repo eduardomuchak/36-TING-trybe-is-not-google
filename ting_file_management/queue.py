@@ -16,3 +16,8 @@ class Queue:
             return self.queue[index]
         else:
             raise IndexError
+
+    def values(self, index):
+        for i in self.queue:
+            if i["nome_do_arquivo"] == index:
+                return True
