@@ -19,15 +19,16 @@ def process(path_file, instance: Queue):
     print(data_dict)
 
 
-def remove(instance):
-    data = instance.dequeue()
-    if data:
-        print(f"Arquivo {data['nome_do_arquivo']} removido com sucesso")
-    else:
+def remove(instance: Queue):
+    if not instance.__len__():
         print("Não há elementos")
+        return
+
+    data = instance.dequeue()
+    print(f"Arquivo {data['nome_do_arquivo']} removido com sucesso")
 
 
-def file_metadata(instance, position):
+def file_metadata(instance: Queue, position):
     try:
         print(instance.search(position))
     except IndexError:
