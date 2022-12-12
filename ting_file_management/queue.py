@@ -17,7 +17,5 @@ class Queue:
         else:
             raise IndexError
 
-    def values(self, index):
-        for i in self.queue:
-            if i["nome_do_arquivo"] == index:
-                return True
+    def values(self):
+        return str(self.queue)

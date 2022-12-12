@@ -4,8 +4,9 @@ from ting_file_management.queue import Queue
 
 
 def process(path_file, instance: Queue):
-    if instance.values(path_file):
+    if path_file in instance.values():
         return
+
     data = txt_importer(path_file)
 
     data_dict = {
@@ -15,7 +16,7 @@ def process(path_file, instance: Queue):
     }
 
     instance.enqueue(data_dict)
-    print(path_file)
+    print(data_dict)
 
 
 def remove(instance):
